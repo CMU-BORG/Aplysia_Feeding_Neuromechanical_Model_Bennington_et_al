@@ -1,0 +1,27 @@
+%% Fitting Time Constant Parameters from animal data
+
+clear all; close all; clc;
+dir = split(cd,"\");
+dir = strjoin(dir(1:end-1),"\");
+addpath(dir+"\Animal Data\Datasets\");
+
+params_from_data = struct();
+t_I2 = 2.97; % I2 time constant to normalize
+
+%% I3 pinch data - from McManus et al. 2014
+McManusI3aDataFitting;
+params_from_data.tau_I3ant = tau / t_I2;
+fprintf("    tau [tau  ] = %.3f\n",tau / t_I2)
+
+%% I4 data - from Morton et al. 1993
+MortonI4DataFitting;
+params_from_data.tau_I4 = tau / t_I2;
+fprintf("    tau [s] = %.3f\n",tau)
+
+%% Hinge Data - from Sutton et al 2004
+SuttonHingeDataFitting;
+params_from_data.tau_hinge = tau / t_I2;
+fprintf("    tau [s] = %.3f\n",tau)
+
+%% Saving Data
+save("AnimalTimeConstants","params_from_data")
