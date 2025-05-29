@@ -308,6 +308,7 @@ for i=1:2
 
         maxF = max(F_animal);
         minF = min(F_animal);
+        plot(t_animal,(F_animal-minF)/(maxF - minF),'-','Color',0.6*[1,1,1],'LineWidth',LW)
         fill([t_animal,fliplr(t_animal)],[(F_animal_lower - minF),fliplr((F_animal_upper - minF))]/(maxF - minF),0.6*[1,1,1],"EdgeColor","none","FaceAlpha",0.4)
         yticks([])
     

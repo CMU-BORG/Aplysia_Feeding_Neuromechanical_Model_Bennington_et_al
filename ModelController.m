@@ -22,7 +22,7 @@ show_rejection = 1;
 % Comparisons and Saving
 to_save = 1;                % indicator to specify if the simulation results should be saved (and overwrite the current data)
 run_original_model = 1;     % indicator to specify if the Webster-Wood et al 2020 model should be run for comparison
-recalc_data = true;        % indicator to specify whether or not to recalculate the damping convergence data (if false, loads saved data)
+recalc_data = false;        % indicator to specify whether or not to recalculate the damping convergence data (if false, loads saved data)
 
 % plotting colors
 present_model_color = [0.8,0.2,0.6];
@@ -109,6 +109,7 @@ if show_rejection
     end
 
 end
+%%
 
 % Figure 5: Steady state simulation results
 All_Behavior_Comparison
