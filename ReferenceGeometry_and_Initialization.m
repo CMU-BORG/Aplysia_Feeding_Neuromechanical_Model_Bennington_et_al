@@ -271,7 +271,7 @@ params_struct.thresh_B31_pressure_bite =       0.15;    % pressure threshold at 
 % Swallowing Parameters
 params_struct.thresh_B64_swallow_protract =    0.24;    % protraction level above which to turn on I3
 params_struct.thresh_B31_swallow_off =         0.26;    % retraction level at which to turn I2 back on 
-params_struct.thresh_B31_swallow_on =          0.78;    % protraction level at which to turn I2 off
+params_struct.thresh_B31_swallow_on =          0.74;    % protraction level at which to turn I2 off
 params_struct.thresh_B6B9B3_swallow_pressure = 0.75;    % pressure threshold needed before I3 turns on 
 params_struct.thresh_B38_retract =             0.5;     % threshold below which B38 turns on
 params_struct.thresh_B31_pressure_swallow =    0.98; %minimum value: 0.87, old value:0.25;    % pressure threshold at which I2 can turn on
