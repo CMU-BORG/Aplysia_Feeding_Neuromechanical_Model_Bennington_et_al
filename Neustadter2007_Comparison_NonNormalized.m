@@ -420,8 +420,9 @@ fprintf("\t\tSwallow: %.3f \t %.3f+/-%.3f\n",model_data.uswallow_angle_rom, anim
 % unloaded swallowing
 ind_dur_over_s = find(abs(err_s_t) >= 0.2 );
 t_dur_over_s = t(ind_dur_over_s);
-dur_over_s = max(t_dur_over_s) - min(t_dur_over_s);
+dur_over_s = max(t_dur_over_s) - min(t_dur_over_s); 
 max_err_s = max(abs(err_s_t));
+
 
 fprintf("\t\tIn swallowing, %.1f%% of the cycle was spent out of the +/-20%% error bound, with a max error %.1f%%.\n",dur_over_s*100,max_err_s*100)
 
