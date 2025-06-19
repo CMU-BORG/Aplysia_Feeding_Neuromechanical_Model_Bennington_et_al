@@ -1,5 +1,5 @@
 %% Code Controller for Aplysia Neuromechanical Model
-% Last Updated: MB 09/15/2024
+% Last Updated: MB 06/19/2025
 % 
 % This script can be run to generate all of the results presented in 
 % "Incorporating buccal mass planar mechanics and anatomical features 
@@ -220,3 +220,42 @@ Statistical_Comparison
 
 PlotFrames
 
+%% Timing Analysis of the Model
+N_replicates = 20;
+
+bite_sim_times = zeros(N_replicates,1);
+swallow_sim_times = zeros(N_replicates,1);
+reject_sim_times = zeros(N_replicates,1);
+
+fprintf("Comparison of Simulation Speed Relative to Real Time:\n")
+% biting
+behavior = "biting";
+for i=1:N_replicates
+    tic
+    GetSteadyState;
+    bite_sim_times(i) = toc;
+end
+
+% swallowing
+behavior = "unloaded swallowing";
+for i=1:N_replicates
+    tic
+    GetSteadyState;
+    swallow_sim_times(i) = toc;
+end
+
+% biting
+behavior = "rejection";
+for i=1:N_replicates
+    tic
+    GetSteadyState;
+    reject_sim_times(i) = toc;
+end
+
+bite_CTRT = tend ./ bite_sim_times;
+swallow_CTRT = tend ./ swallow_sim_times;
+reject_CTRT = tend ./ reject_sim_times;
+
+fprintf("\tBiting: %.3f +/- %.3f x real time\n",mean(bite_CTRT),std(bite_CTRT))
+fprintf("\tSwallowing: %.3f +/- %.3f x real time\n",mean(swallow_CTRT),std(swallow_CTRT))
+fprintf("\tRejection: %.3f +/- %.3f x real time\n",mean(reject_CTRT),std(reject_CTRT))
